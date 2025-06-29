@@ -1,0 +1,98 @@
+문제점
+    1. function nextPosition(current, dice) 의 내부 함수들이 실행이 아닌 선언만 되어 실행되지 않음.
+    2. nextPosition 함수가 실제로 사다리→뱀 순으로 실행 후 반환되지 않음
+    3. next = start + c;에서  nextPosition(current, dice)이 아니라 c로 오타가 난 것을 미처 확인 못함
+    4. next값을  nextPosition_ladder에서 nextPositio으로 변경했어야 했는데 수정을 깜빡해서 뱀 적용 없이 사다리만 호출됨
+
+에러
+    Cannot find module 'C:\Users\사용\boostcamp\maission1.js’
+
+해결 방법 
+    1. nextPosition 함수 내부에 사다리 → 뱀 순으로 모두 적용 되도록 코드를 수정함 
+    2. next값을  nextPosition_ladder에서 nextPositio으로 변경하여 nextPosition에서 dice의 값을 반환하도록 함
+    3. next = start + c;에서 c를  nextPosition(current, dice)로 변경함
+
+function nextPosition_ladder(current, dice) {
+    const next = current + dice;
+    if (next == 4) {
+        return dice + 10;
+    }
+    else if (next == 8) {
+        return dice + 22;
+    }
+    else if (next == 28) {
+        return dice + 48;
+    }
+    else if (next == 21) {
+        return dice + 21;
+    }
+    else if (next == 50) {
+        return dice + 17;
+    }
+    else if (next == 71) {
+        return dice + 92;
+    }
+    else if (next == 80) {
+        return dice + 19;
+    }
+    
+    return dice;    
+}
+
+function nextPosition_snake(current, dice) {
+    const next = current + dice;
+    if (next == 32) {
+        return dice - 22;
+    }
+    else if (next == 36) {
+        return dice - 30;
+    }
+    else if (next == 48) {
+        return dice - 22;
+    }
+    else if (next == 62) {
+        return dice - 44;
+    }
+    else if (next == 88) {
+        return dice - 64;
+    }
+    else if (next == 95) {
+        return dice - 39;
+    }
+    else if (next == 97) {
+        return dice - 19;
+    }
+    
+    return dice;    
+}
+
+function nextPosition(current, dice){
+    const newDice = dice;
+    dice = function nextPosition_snake(current, dice);
+    dice = function nextPosition_ladder(current, dice);
+}
+
+let start = 1;
+let dice = 3;
+next = start + c;
+console.log("from=",start,", dice=",dice,", next=", next);
+
+start = next;
+dice = 4;
+next = start + nextPosition_ladder(start, dice);
+console.log("from=",start,", dice=",dice,", next=", next);
+
+start = next;
+dice = 3;
+next = start + nextPosition_ladder(start, dice);
+console.log("from=",start,", dice=",dice,", next=", next);
+
+start = next;
+dice = 5;
+next = start + nextPosition_ladder(start, dice);
+console.log("from=",start,", dice=",dice,", next=", next);
+
+start = next;
+dice = 1;
+next = start + nextPosition_ladder(start, dice);
+console.log("from=",start,", dice=",dice,", next=", next);
