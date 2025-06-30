@@ -41,15 +41,12 @@
 
 ```js
 var a = new A.init();
+```
 
+이 코드는 객체 생성과 초기화를 포함하는 JavaScript 문장입니다. 이를 AST 형태로 해석하면 아래와 같은 트리 구조가 됩니다.
 
-이 코드는 객체 생성과 초기화를 포함하는 JavaScript 문장입니다. 이를 AST 형태로 해석하면 다음과 같은 트리 구조가 됩니다:
-
-AST 구조 다이어그램
-pgsql
-항상 세부 정보 표시
-
-복사
+#AST 구조 다이어그램
+```js
 Program
  └── VariableDeclaration (kind: "var")
      └── VariableDeclarator
@@ -59,11 +56,9 @@ Program
              │   ├── object: Identifier(name="A")
              │   └── property: Identifier(name="init")
              └── arguments: []
-AST 노드 데이터 구조 (Python-like Pseudocode)
-python
-항상 세부 정보 표시
-
-복사
+```
+#AST 노드 데이터 구조 (Python-like Pseudocode)
+```js
 class Node: pass
 
 class Identifier(Node):
@@ -105,6 +100,8 @@ ast = VariableDeclaration(
     ],
     kind="var"
 )
+```
+
 4. 종합적 학습 정리 및 메타 인사이트
 배운 점 요약
 AST 설계의 중요성: 코드 구조를 명확히 모델링하는 트리 설계가 전체 컴파일러 품질에 큰 영향을 미친다.
@@ -116,10 +113,7 @@ AST 설계의 중요성: 코드 구조를 명확히 모델링하는 트리 설�
 도구 활용: kastree, ESTree, Gist 예제 등을 통해 실제 코드를 다뤄보며 개념을 현실화할 수 있었다.
 
 다이어그램
-plaintext
-항상 세부 정보 표시
-
-복사
+```js
 [ Source Code ]
       ↓
 [ Tokenizer ]
@@ -135,6 +129,7 @@ plaintext
 [ Optimizer ]
       ↓
 [ Machine Code ]
+```
 결론
 이번 리서치를 통해 AST의 실질적인 구성 방식, 언어별 차이, 트리 구조 구현 방식 등을 명확히 이해할 수 있었습니다. 특히 AST 구조를 "실제 코드"로 표현하면서 추상적 개념이 어떻게 코드와 연결되는지 실감할 수 있었습니다. 앞으로 더 복잡한 문장이나 함수 선언, 조건문 등을 포함한 AST 확장 설계로 발전해 나갈 계획입니다.
 
