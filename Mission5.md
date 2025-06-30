@@ -1,9 +1,4 @@
-#Mission5
-from pathlib import Path
-
-# Markdown content from the previous message
-markdown_content = """
-# AST 구조 설계 및 분석 리포트
+#Mission5. AST 구조 설계 및 분석 리포트
 
 > 작성일: 2025-06-30  
 > 작성자: onk-413 
