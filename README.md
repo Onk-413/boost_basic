@@ -1,4 +1,4 @@
-# boost_basic
+# Mission1
 
 - 출력 결과
     from= 1 , dice= 3 , next= 14
