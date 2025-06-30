@@ -1,7 +1,6 @@
 # Mission1
 
 - 출력 결과
-
     from= 1 , dice= 3 , next= 14
     from= 14 , dice= 4 , next= 18
     from= 18 , dice= 3 , next= 63
