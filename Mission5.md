@@ -35,13 +35,18 @@
 
 ## 2. 학습 자료 정리
 
-| 번호 | 자료명 | 링크 | 핵심 학습 내용 | 활용 목적 |
-|------|--------|------|----------------|------------|
-| 1 | 컴파일러 기본 강의 (YouTube) | [🔗 바로가기](https://www.youtube.com/watch?v=ZI198eFghJk) | 컴파일러 파이프라인 이해 | 전체 흐름 정리 |
-| 2 | Lessons from Writing a Compiler | [🔗 바로가기](https://borretti.me/article/lessons-writing-compiler) | AST 설계 실수, 파싱 교훈 | AST 구조 설계 시 유의점 학습 |
-| 4 | Gist AST 예제 코드 | [🔗 바로가기](https://gist.github.com/pizlonator/cf1e72b8600b1437dda8153ea3fdb963) | 실제 코드로 구현된 트리 구조 | AST 노드 구현 방식 이해 |
-| 8 | kastree (Kotlin AST Library) | [🔗 바로가기](https://github.com/cretz/kastree) | Kotlin용 AST 생성기 | 언어별 AST 표현 방식 참고 |
-| 9 | Kotlin IR 구조 설명 | [🔗 바로가기](https://akuleshov7.com/2021-06-24-kotlin-representation.html) | 고급 IR 설계 | AST ↔ IR 구조 연결 관점 학습 |
+| 번호 | 자료명                      | 링크                                                                 | 핵심 학습 내용                       | 활용 목적                      |
+|------|----------------------------|----------------------------------------------------------------------|------------------------------------|------------------------------|
+| 1    | 컴파일러 기본 강의 (YouTube) | [🔗 바로가기](https://www.youtube.com/watch?v=ZI198eFghJk)          | 컴파일러 파이프라인 흐름 이해       | 전체 컴파일러 구조 정리       |
+| 2    | Lessons from Writing a Compiler | [🔗 바로가기](https://borretti.me/article/lessons-writing-compiler) | AST 설계 실수 및 구현 교훈          | AST 설계 시 유의점 학습       |
+| 3    | Cranelift e-graph RFC        | [🔗 바로가기](https://github.com/bytecodealliance/rfcs/blob/main/accepted/cranelift-egraph.md) | e-graph 기반 최적화와 IR 변환 이해 | 최적화 구조 및 IR 설계 학습   |
+| 4    | Gist: AST 예제 코드          | [🔗 바로가기](https://gist.github.com/pizlonator/cf1e72b8600b1437dda8153ea3fdb963) | AST 트리 구조 구현 코드            | AST 노드 구현 방식 실습       |
+| 5    | WebKit Speculation in JavaScriptCore | [🔗 바로가기](https://webkit.org/blog/10308/speculation-in-javascriptcore/) | 런타임 추측 실행 최적화 기법       | JIT 최적화 동작 이해          |
+| 6    | A Python Interpreter written in Python | [🔗 바로가기](https://aosabook.org/en/500L/a-python-interpreter-written-in-python.html) | 파이썬 메타 해석기 구현 사례       | 인터프리터 구조 직접 구현 경험 |
+| 7    | SIL High-Level IR (LLVM 세미나) | [🔗 바로가기](https://llvm.org/devmtg/2015-10/slides/GroffLattner-SILHighLevelIR.pdf) | Swift SIL IR 설계와 LLVM 매핑      | 고수준 IR 설계 및 활용        |
+| 8    | Kastree (Kotlin AST 라이브러리) | [🔗 바로가기](https://github.com/cretz/kastree)                      | Kotlin AST 생성기 및 파싱 기술      | Kotlin AST 생성 및 변환 학습  |
+| 9    | Kotlin IR 구조 설명          | [🔗 바로가기](https://akuleshov7.com/2021-06-24-kotlin-representation.html) | Kotlin IR 설계 및 API 이해          | IR 기반 언어 도구 설계 학습   |
+
 
 추가로 ECMAScript 기반 AST 명세인 [ESTree](https://github.com/estree/estree)를 참조해 JavaScript 문법에 대한 AST 노드 구조를 명확히 파악했습니다.
 
