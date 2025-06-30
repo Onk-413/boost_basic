@@ -1,12 +1,13 @@
 # Mission1
 
 - 출력 결과
+  '''
     from= 1 , dice= 3 , next= 14
     from= 14 , dice= 4 , next= 18
     from= 18 , dice= 3 , next= 63
     from= 63 , dice= 5 , next= 68
     from= 68 , dice= 1 , next= 69
-
+'''
     
 - 출력 결과 분석
     주사위 숫자만큼 이동해서 도착할 위치를 계산하는 판단조건, 변수의 의미 
