@@ -6,7 +6,7 @@ markdown_content = """
 # AST 구조 설계 및 분석 리포트
 
 > 작성일: 2025-06-30  
-> 작성자: [작성자 이름]  
+> 작성자: onk-413 
 > 주제: `var a = new A.init();` 한 줄 코드의 AST 구조 설계 및 리서치 결과 정리
 
 ---
@@ -46,7 +46,7 @@ markdown_content = """
 
 ```js
 var a = new A.init();
-```
+
 
 이 코드는 객체 생성과 초기화를 포함하는 JavaScript 문장입니다. 이를 AST 형태로 해석하면 다음과 같은 트리 구조가 됩니다:
 
