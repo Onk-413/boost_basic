@@ -27,25 +27,56 @@ function match(filePaths) {
 
     for (const path of filePaths) {
         // 경로에서 파일명 추출
-        const fileNameWithExt = path.substring(path.lastIndexOf('/') + 1);
+        const fileName = path.substring(path.lastIndexOf('/') + 1);
 
         // 버전 정보 제거 (_v1 ~ _v9)
-        const cleanedFileName = fileNameWithExt.replace(/_v[1-9](?=\.[a-z]{2}$)/, '');
+        const cleanedFileName = fileName.replace(/_v[1-9](?=\.[a-z]{2}$)/, '');
 
-        // 3개수 누적
+        // 개수 누적
         countMap.set(cleanedFileName, (countMap.get(cleanedFileName) || 0) + 1);
     }
 
-    // 2회 이상 등장한 파일만 반환
-    const result = new Map();
+    // 2회 이상 등장한 파일만 객체로 추출
+    const result = {};
     for (const [key, count] of countMap.entries()) {
         if (count >= 2) {
-            result.set(key, count);
+            result[key] = count;
         }
     }
 
     return result;
 }
+
+// 테스트 예시
+
+console.log(JSON.stringify(match([
+    "/a/a_v2.xa",
+    "/b/a.xa",
+    "/c/t.zz",
+    "/d/a/t.xa",
+    "/e/z/t_v1.zz",
+    "/k/k/k/a_v9.xa"
+])));
+// {"a.xa":3,"t.zz":2}
+
+console.log(JSON.stringify(match([
+    "/t.zp",
+    "/z/z_v2.zp",
+    "/a.za",
+    "/d/b.zb",
+    "/d/a/t.zp"
+])));
+// {"t.zp":2}
+
+console.log(JSON.stringify(match([
+    "/t.yg",
+    "/b/b.zg",
+    "/a.zg",
+    "/e/a.zz",
+    "/d/a/x_v2.zg"
+])));
+// {}
+
 ```
 
 ## 3. 동작 내용
