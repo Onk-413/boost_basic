@@ -87,41 +87,60 @@ console.log(JSON.stringify(match([
     "/a/a_v2.xa",
     "/b/a.xa",
     "/c/t.zz",
-    "/d/a/t.xa",
-    "/e/z/t_v1.zz",
-    "/k/k/k/a_v9.xa"
-]
-```
+    "/d/a정
+```js
+// 문제 풀이 부분
+function match(param0) {
+  const countMap = new Map();
 
-### 처리 과정
-```js  
-/a/a_v2.xa → a.xa
-/b/a.xa → a.xa
-/c/t.zz → t.zz
-/d/a/t.xa → t.xa
-/e/z/t_v1.zz → t.zz
-/k/k/k/a_v9.xa → a.xa
-```
+  for (const path of param0) {
+    // 경로에서 파일명 추출
+    const fileName = path.substring(path.lastIndexOf('/') + 1);
 
-### 중복 파일 개수:
+    // 버전 정보 제거 (_v1 ~ _v9)
+    const cleanedFileName = fileName.replace(/_v[1-9](?=\.[a-z]{2}$)/, '');
 
-```js  
-a.xa → 3회
-t.zz → 2회
-t.xa → 1회
-```
+    // 개수 누적
+    countMap.set(cleanedFileName, (countMap.get(cleanedFileName) || 0) + 1);
+  }
 
-### 반환 결과
+  // 2회 이상 등장한 파일만 Map으로 반환
+  const result = new Map();
+  for (const [key, count] of countMap.entries()) {
+    if (count >= 2) {
+      result.set(key, count.toString());
+    }
+  }
 
-```js  
-Map {
-  'a.xa' => 3,
-  't.zz' => 2
+  return result;
 }
+
+// 데이터 입력/출력 부분
+const readline = require('readline');
+const rl = readline.createInterface({
+	input: process.stdin,
+	output: process.stdout
+});
+
+let inputs = [];
+rl.on('line', (line) => {
+	inputs.push(line);
+	if (inputs.length === 1) {
+		rl.close();
+	}
+});
+
+rl.on('close', () => {
+	const fileArray = inputs[0].split(',');
+	const answer = match(fileArray);
+        if (answer.size == 0) {
+             console.log("!EMPTY");
+             rl.close();
+             return;
+        }
+	for (const [key, value] of answer){
+		console.log(key+"="+value);
+	}
+	rl.close();
+});
 ```
-
-## 4. 요약
-- 디렉토리 경로와 버전을 제거하여 파일명 기준으로 비교
-- 중복된 파일과 개수를 Map으로 반환
-- 간단하며 확장 가능한 구조로, 추후 실제 로컬 파일 스캔 연동 시에도 재사용 가능
-
