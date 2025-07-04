@@ -5,3 +5,6 @@
 [Mission5](Mission5.md)     
 [Mission6](Mission6.md)  
 [Mission7](Mission7.md)   
+[Mission8](Mission8.md)   
+[Mission9](Mission9.md)   
+[Mission10](Mission10.md)   
