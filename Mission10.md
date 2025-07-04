@@ -2,21 +2,25 @@
 
 # Model File String Reading Guide
 
-## 문자가 저장된 파일을 읽기 처리하는 방법
+### 문자가 저장된 파일을 읽기 처리하는 방법
 - `fs.readFileSync(path, 'utf-8')`를 사용하여 파일의 문자열 내용을 한 번에 읽어온다.
 - `split('\n')`으로 줄 단위로 파싱 후 `map`, `filter`, `slice` 등을 사용하여 필요한 데이터만 배열로 정리한다.
 - 정규식을 사용하여 `match(/pattern/)`으로 원하는 값 추출 후 `parseFloat`, `parseInt`로 숫자로 변환한다.
 
-## 기능 요구사항 요약
+---
+
+### 기능 요구사항 요약
 - 제공된 models.zip 압축 해제 후 구조를 유지한 상태로 분석.
 - `data.model`에서 objectid와 경로 파싱.
 - 각 모델 파일에서 vertex, triangle 데이터를 파싱.
 - Triangle 중 X, Y, Z 축으로 가장 긴 Triangle과 면적이 가장 큰 Triangle의 objectid 출력.
 
-## 프로그래밍 요구사항 요약
+### 프로그래밍 요구사항 요약
 - 5초 동안 분석 진행 Progress Bar를 터미널에 출력.
 - 최소 10% 단위 이상으로 진행률을 갱신.
 - 분석 완료 후 분석 결과를 출력.
+
+---
 
 ## 구현 코드
 ```js
