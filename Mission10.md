@@ -1,6 +1,6 @@
 # Mission 10
 
-# Model File String Reading Guide
+# Model 파일 분석
 
 ### 문자가 저장된 파일을 읽기 처리하는 방법
 - `fs.readFileSync(path, 'utf-8')`를 사용하여 파일의 문자열 내용을 한 번에 읽어온다.
